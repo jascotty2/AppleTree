@@ -1,21 +1,21 @@
 package com.ngc0202.appletree;
 
+import java.io.File;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginManager;
 
 public class AppleTree extends JavaPlugin {
 
-    private final AppleTreeBlockListener blockListener = new AppleTreeBlockListener(this);
+    protected static File propFile = null;
+    private static AppleTreeBlockListener blockListener = null;
 
     @Override
     public void onEnable() {
-        PluginManager pm = getServer().getPluginManager();
+        getDataFolder().mkdirs();
+        propFile = new File(getDataFolder(), "appletree.properties");
 
-        pm.registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Highest, this);
-        pm.registerEvent(Event.Type.LEAVES_DECAY, blockListener, Event.Priority.Highest, this);
-
-        PropertiesFile prop = new PropertiesFile("appletree.properties");
+        PropertiesFile prop = new PropertiesFile(propFile.getAbsolutePath());
         if (!prop.keyExists("AChance")) {
             prop.setDouble("AChance", 0.05);
         }
@@ -43,7 +43,12 @@ public class AppleTree extends JavaPlugin {
             prop.setDouble("CBChance", prop.getDouble("CBChance") / total);
             //prop.setDouble("SaplingChance", prop.getDouble("SaplingChance") / total);
         }
-        System.out.println(prop.getDouble("AChance") +", " + prop.getDouble("GAChance") + ", " + prop.getDouble("CBChance"));
+
+        blockListener = new AppleTreeBlockListener(this);
+        PluginManager pm = getServer().getPluginManager();
+        pm.registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Highest, this);
+        pm.registerEvent(Event.Type.LEAVES_DECAY, blockListener, Event.Priority.Highest, this);
+
         System.out.println("AppleTree v" + getDescription().getVersion() + " activated.");
     }
 

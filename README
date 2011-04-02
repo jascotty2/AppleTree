@@ -20,6 +20,10 @@ Properties file for different settings.
 
 Changelog:
 
+Version 0.5.1 - 4/2/11 - jascotty2
+settings moved to plugin folder
+
+
 Version 0.5 - 4/2/11 - jascotty2
 cocoa beans added as a drop
 probability can be relative - ony one item can drop from a leaf break

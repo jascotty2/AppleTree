@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class AppleTreeBlockListener extends BlockListener {
 
     public static AppleTree plugin;
-    PropertiesFile prop = new PropertiesFile("appletree.properties");
+    PropertiesFile prop = new PropertiesFile(AppleTree.propFile.getAbsolutePath());
 
     public AppleTreeBlockListener(AppleTree instance) {
         plugin = instance;
@@ -42,7 +42,7 @@ public class AppleTreeBlockListener extends BlockListener {
                 event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.GOLDEN_APPLE, 1));
             } else if (prop.getBoolean("CanDropCocoa")
                     && rand <= prop.getDouble("CBChance")+ prop.getDouble("AChance") + (prop.getBoolean("CanDropGold") ? prop.getDouble("GAChance") : 0)) {
-                event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.INK_SACK, 1, (short) 12));
+                event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(Material.INK_SACK, 1, (short) 3));
             }
         }
     }
