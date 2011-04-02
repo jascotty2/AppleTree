@@ -1,0 +1,4 @@
+name: AppleTree
+version: 0.5
+main: com.ngc0202.appletree.AppleTree
+authors: [ngc0202, jascotty2]

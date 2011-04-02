@@ -1,0 +1,46 @@
+AppleTree - The only standalone apple tree plugin. 
+
+
+AppleTree is a very simple plugin that was designed with the sole idea of turning trees into apple trees. There is a configuration file that will be created in the same folder as craftbukkit called appletree.properties, which you can use to customize different aspects of the plugin.
+
+Properties Guide:
+CanDropDecay - (true/false) Whether or not apples drop on decaying leaves.
+GAChance - (number between 0 and 1) The chance of a golden apple drop. 5% = 0.05
+CanDropGold - (true/false) If golden apples can drop.
+AChance - (number between 0 and 1) The chance of an apple drop. 5% = 0.05
+CanDropCocoa= (true/false) If cocoa beans can drop.
+CBChance=(number between 0 and 1) The chance of a cocoa bean drop.
+*NOTE: The properties file is located in the root server directory!*
+Features: 
+
+Apples spawn from destroyed leaves.
+Chance to spawn golden apples as well.
+Properties file for different settings.
+
+
+Changelog:
+
+Version 0.5 - 4/2/11 - jascotty2
+cocoa beans added as a drop
+probability can be relative - ony one item can drop from a leaf break
+- (except saplings.. not sure how to turn those off)
+
+
+Version 0.4
+Allowed compatibility with newer bukkit versions.
+Fixed the "Stupidly long constructor" error
+Version 0.3.1
+Fixed the bug where golden apples don't spawn.
+*363 downloads*
+Version 0.3
+
+Added a appletree.properties file for customizations.
+Added source.
+*360 downloads*
+Version 0.2
+
+Allowed drops from decaying leaves.
+*247 downloads*
+Version 0.1
+
+Original release.
