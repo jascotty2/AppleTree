@@ -25,6 +25,15 @@ public class AppleTree extends JavaPlugin {
         if (!prop.keyExists("CBChance")) {
             prop.setDouble("CBChance", 0.02);
         }
+        if (!prop.keyExists("DecayAChance")) {
+            prop.setDouble("DecayAChance", 0.05);
+        }
+        if (!prop.keyExists("DecayGAChance")) {
+            prop.setDouble("DecayGAChance", 0.005);
+        }
+        if (!prop.keyExists("DecayCBChance")) {
+            prop.setDouble("DecayCBChance", 0.02);
+        }
         //if (!prop.keyExists("SaplingChance")) prop.setDouble("SaplingChance", 0.1);
         if (!prop.keyExists("CanDropGold")) {
             prop.setBoolean("CanDropGold", true);
@@ -34,6 +43,12 @@ public class AppleTree extends JavaPlugin {
         }
         if (!prop.keyExists("CanDropDecay")) {
             prop.setBoolean("CanDropDecay", true);
+        }
+        if(!prop.keyExists("DropLeaves")){
+            prop.setBoolean("DropLeaves", false);
+        }
+        if(!prop.keyExists("DecayDropLeaves")){
+            prop.setBoolean("DecayDropLeaves", false);
         }
         double total = prop.getDouble("AChance") + prop.getDouble("GAChance")
                 + prop.getDouble("CBChance");// + prop.getDouble("SaplingChance");
