@@ -1,6 +1,7 @@
 package com.ngc0202.appletree;
 
 import java.io.File;
+import java.util.ArrayList;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.PluginManager;
@@ -9,6 +10,7 @@ public class AppleTree extends JavaPlugin {
 
     protected static File propFile = null;
     private static AppleTreeBlockListener blockListener = null;
+	protected ArrayList<String> disabledWorlds = new ArrayList<String>();
 
     @Override
     public void onEnable() {
@@ -50,6 +52,18 @@ public class AppleTree extends JavaPlugin {
         if(!prop.keyExists("DecayDropLeaves")){
             prop.setBoolean("DecayDropLeaves", false);
         }
+		if(prop.keyExists("disabledWorlds")){
+			String wls = prop.getString("disabledWorlds");
+			for(String w : wls.split(",")){
+				w = w.trim().toLowerCase();
+				if(w.length() > 0){
+					disabledWorlds.add(w);
+					System.out.println("disabled on " + w);
+				}
+			}
+		} else {
+			prop.setString("disabledWorlds", "");
+		}
         double total = prop.getDouble("AChance") + prop.getDouble("GAChance")
                 + prop.getDouble("CBChance");// + prop.getDouble("SaplingChance");
         if (total > 1) {

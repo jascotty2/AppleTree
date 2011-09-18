@@ -22,18 +22,22 @@ Properties file for different settings.
 
 Changelog:
 
-Version 0.6 - ?
+Version 0.7 - 9/18/11
+added option to disable on defined worlds
+
+Version 0.6 - 5/27/11
 leaves can now be dropped (DropLeaves=true)
 more settings added to allow seperate decay drop chances
 fixed protection checks
 
 Version 0.5.1 - 4/2/11 - jascotty2
 settings moved to plugin folder
+*15,790 downloads*
 
 Version 0.5 - 4/2/11 - now being maintained by jascotty2
 cocoa beans added as a drop
 probability is relative - ony one item can drop from a leaf break
-- (except saplings.. not sure how to turn those off)
+- (except saplings.. not sure how to turn those off yet)
 
 Version 0.4
 Allowed compatibility with newer bukkit versions.
