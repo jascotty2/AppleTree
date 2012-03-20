@@ -2,9 +2,7 @@ package com.ngc0202.appletree;
 
 import java.io.File;
 import java.util.ArrayList;
-import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.PluginManager;
 
 public class AppleTree extends JavaPlugin {
 
@@ -58,7 +56,6 @@ public class AppleTree extends JavaPlugin {
 				w = w.trim().toLowerCase();
 				if(w.length() > 0){
 					disabledWorlds.add(w);
-					System.out.println("disabled on " + w);
 				}
 			}
 		} else {
@@ -74,15 +71,14 @@ public class AppleTree extends JavaPlugin {
         }
 
         blockListener = new AppleTreeBlockListener(this);
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvent(Event.Type.BLOCK_BREAK, blockListener, Event.Priority.Highest, this);
-        pm.registerEvent(Event.Type.LEAVES_DECAY, blockListener, Event.Priority.Highest, this);
+        
+		getServer().getPluginManager().registerEvents(blockListener, this);
 
-        System.out.println("AppleTree v" + getDescription().getVersion() + " activated.");
+        //System.out.println("AppleTree v" + getDescription().getVersion() + " activated.");
     }
 
     @Override
     public void onDisable() {
-        System.out.println("AppleTree disabled.");
+        //System.out.println("AppleTree disabled.");
     }
 }

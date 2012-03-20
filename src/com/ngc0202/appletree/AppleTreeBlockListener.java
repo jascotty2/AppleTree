@@ -2,12 +2,14 @@ package com.ngc0202.appletree;
 
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockListener;
 import org.bukkit.event.block.LeavesDecayEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class AppleTreeBlockListener extends BlockListener {
+public class AppleTreeBlockListener implements Listener {
 
 	public static AppleTree plugin;
 	PropertiesFile prop = new PropertiesFile(AppleTree.propFile.getAbsolutePath());
@@ -16,7 +18,7 @@ public class AppleTreeBlockListener extends BlockListener {
 		plugin = instance;
 	}
 
-	@Override
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onBlockBreak(BlockBreakEvent event) {
 		if (event.isCancelled()) {
 			return;
@@ -46,7 +48,7 @@ public class AppleTreeBlockListener extends BlockListener {
 		}
 	}
 
-	@Override
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onLeavesDecay(LeavesDecayEvent event) {
 		if (event.isCancelled()) {
 			return;
